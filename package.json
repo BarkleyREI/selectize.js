@@ -12,7 +12,7 @@
   ],
   "main": "dist/js/selectize.js",
   "description": "Selectize is a jQuery-based custom <select> UI control. Useful for tagging, contact lists, country selectors, etc.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "BarkleyREI Team.  Originally Brian Reavis <brian@thirdroute.com>",
   "license": "(MIT OR Apache-2.0)",
   "repository": {
