@@ -1,0 +1,93 @@
+@import "../../node_modules/bootstrap/scss/functions.scss";
+@import "../../node_modules/bootstrap/scss/variables.scss";
+@import "../../node_modules/bootstrap/scss/mixins/_deprecate.scss";
+@import "../../node_modules/bootstrap/scss/mixins/nav-divider.scss";
+
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "selectize";
+
+.selectize-dropdown, .selectize-dropdown.form-control {
+	height: auto;
+	padding: 0;
+	margin: 2px 0 0 0;
+	z-index: $zindex-dropdown;
+	background: $selectize-color-dropdown;
+	border: 1px solid $dropdown-border-color;
+	@include selectize-border-radius($border-radius);
+	@include selectize-box-shadow(0 6px 12px rgba(0,0,0,.175));
+}
+
+.selectize-dropdown {
+	.optgroup-header {
+		font-size: $font-size-sm;
+		line-height: $line-height-base;
+	}
+	.optgroup:first-child:before {
+		display: none;
+	}
+	.optgroup:before {
+		content: ' ';
+		display: block;
+		@include nav-divider();
+		margin-left: $selectize-padding-dropdown-item-x * -1;
+		margin-right: $selectize-padding-dropdown-item-x * -1;
+	}
+}
+
+.selectize-dropdown-content {
+	padding: 5px 0;
+}
+
+.selectize-dropdown-header {
+	padding: $selectize-padding-dropdown-item-y * 2 $selectize-padding-dropdown-item-x;
+}
+
+.selectize-input {
+	min-height: $input-height;
+
+	&.dropdown-active {
+		@include selectize-border-radius($selectize-border-radius);
+	}
+	&.dropdown-active::before {
+		display: none;
+	}
+	&.focus {
+		$color: $input-border-color;
+		$color-rgba: rgba(red($color), green($color), blue($color), .6);
+		border-color: $color;
+		outline: 0;
+		@include selectize-box-shadow("inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px ${color-rgba}");
+	}
+}
+
+.has-error .selectize-input {
+    border-color: $selectize-color-input-error;
+    @include selectize-box-shadow($selectize-shadow-input-error);
+
+    &:focus {
+        border-color: $selectize-color-input-error-focus;
+        @include selectize-box-shadow($selectize-shadow-input-error-focus);
+    }
+}
+
+.selectize-control {
+	&.multi {
+		.selectize-input.has-items {
+			padding-left: $selectize-padding-x - $selectize-padding-item-x;
+			padding-right: $selectize-padding-x - $selectize-padding-item-x;
+		}
+		.selectize-input > div {
+			@include selectize-border-radius($selectize-border-radius - 1px);
+		}
+	}
+}
+
+.form-control.selectize-control {
+	padding: 0;
+	height: auto;
+	border: none;
+	background: none;
+	@include selectize-box-shadow(none);
+	@include selectize-border-radius(0);
+}

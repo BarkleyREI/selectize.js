@@ -3,8 +3,6 @@ plugins=*
 GRUNT=node_modules/.bin/grunt
 
 all: compile
-test:
-	npm test
 compile:
 	$(GRUNT) --plugins=$(plugins)
 release:
